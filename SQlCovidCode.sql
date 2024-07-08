@@ -33,7 +33,7 @@ Group by location,population
 Order by 4 desc
 
 --Cases according to continent
-Select location, MAX(CAST(total_cases AS decimal(12,2))) as TotalDeathCount
+Select location, MAX(CAST(total_cases AS decimal(12,2))) as TotalCaseCount
 From CovidData..covidDeath
 WHERE continent is NOT NULL
 Group by location
