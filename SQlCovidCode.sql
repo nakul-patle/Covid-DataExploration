@@ -55,8 +55,7 @@ Group by date
 ORDER by 1,2
 
 --Looking at total population vs vacination
-SELECT *
-,SUM(CAST(Vac.new_vaccinations as bigint)) OVER (Partition by Dea.location ORDER by Dea.location,Dea.date) As RollingSum
+SELECT *, SUM(CAST(Vac.new_vaccinations as bigint)) OVER (Partition by Dea.location ORDER by Dea.location,Dea.date) As RollingSum
 FROM CovidData..CovidDeath Dea
 JOIN CovidData..CovidVacinations Vac
  On Dea.location = Vac.location
